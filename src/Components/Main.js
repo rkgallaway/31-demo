@@ -4,11 +4,7 @@ import Content from './Content.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 
-import { ThemeContext } from '../Context/Theme.js';
-
-import 'normalize.css';
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+import { ThemeContext } from '../Context/Theme';
 
 import './main.scss';
 
@@ -27,7 +23,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <main style={styles[this.context.mode]} className={`bp3-${this.context.mode}`}>
+      <main style={styles[this.context.mode]}>
         <Header />
         <section>
           <Content />
