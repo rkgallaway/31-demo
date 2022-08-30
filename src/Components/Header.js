@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {SiteContext} from '../Context/Site';
+import { SiteContext } from '../Context/Site';
 
-import {Navbar,Alignment} from '@blueprintjs/core';
+import { Group, Header, Navbar, Text } from '@mantine/core';
 
-class Header extends React.Component {
+class AppHeader extends React.Component {
 
   // Must be called contextType
   static contextType = SiteContext;
@@ -12,16 +12,18 @@ class Header extends React.Component {
   // then, you can use this.context ...
   render() {
     return (
-      <header>
-        <Navbar>
-          <Navbar.Group align={Alignment.LEFT}>
-            <Navbar.Heading>{this.context.title}</Navbar.Heading>
-          </Navbar.Group>
+      <Header>
+        <Navbar m="lg">
+          <Group align="left" position="apart" m="lg">
+            <Text>{this.context.title} Home</Text>
+            <Text>Some Nav Link</Text>
+            <Text mr="md">Another Nav Link</Text>
+          </Group>
         </Navbar>
-      </header>
+      </Header>
     );
   }
 
 }
 
-export default Header;
+export default AppHeader;
