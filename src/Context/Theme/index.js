@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const ThemeContext = React.createContext();
 
-class Theme extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mode: 'light',
-    };
+const Theme = (props) => {
+  const [mode, setMode] = useState('light');
+
+  const toggleMode = () => {
+    setMode(mode === 'light' ? 'dark' : 'light')
   }
 
-  render() {
-    return (
-      <ThemeContext.Provider value={this.state}>
-        {this.props.children}
-      </ThemeContext.Provider>
-    );
+  const values = {
+    mode,
+    toggleMode
   }
+
+  return (
+    <ThemeContext.Provider value={values}>
+      {props.children}
+    </ThemeContext.Provider>
+  );
+
 }
 
 export default Theme;
